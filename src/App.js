@@ -15,8 +15,8 @@ class App extends Component {
   {/* <SearchData /> */}
   {/* <MetronomeApp /> */}
    {/* <Reactstarp />  */}
-  {/* <MapApp  /> */}
-{/* <Calculator />  */}
+  <MapApp  />
+<Calculator /> 
   {/* <Form />  */}
   {/* <AvFields /> */}
   {/* <ReactUnsplashApp /> */}
