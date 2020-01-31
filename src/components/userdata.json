@@ -1,0 +1,23 @@
+[
+    {
+      "id": 1,
+      "name": "sai1",
+      "city": "Chennai"
+    },
+    {
+      "id": 2,
+      "name": "sai2",
+      "city": "Bangalore"
+    },
+    {
+      "id": 3,
+      "name": "sai3",
+      "city": "Hyderabad"
+
+    },
+    {
+        "id": 4,
+        "name": "sai4",
+        "city": "Tirupati"
+      }
+  ]

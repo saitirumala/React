@@ -1,0 +1,86 @@
+import React, { Component } from "react";
+import "./App.css";
+// import Form from './components/form';
+// import Table from './components/table';
+//import Search from './components/search';
+// import Datasearch from './components/datasearch';
+// import Reactstarp from './components/reactstrap';
+// import ReactAnt from './components/reactAnt';
+//import Calculator from './components/calculator';
+import Googlemaps from "./components/googlemaps";
+// class App extends Component {
+//   state = {
+//     isMarkerShown: false
+//   };
+//   componentDidMount() {
+//     this.showMarkerDelay();
+//   }
+//   showMarkerDelay = () => {
+//     setTimeout(() => {
+//       this.setState({
+//         isMarkerShown: true
+//       });
+//     }, 3000);
+//   };
+// handelMarkerClick = () => {
+//   this.setState({
+//     isMarkerShown: false
+//   });
+//   this.showMarkerDelay();
+// };
+class App extends Component {
+  state = {
+    isMarkerShown: false,
+    isOpen: false
+  };
+  componentDidMount() {
+    this.showMarkerDelay();
+  }
+  showMarkerDelay = () => {
+    setTimeout(() => {
+      this.setState({
+        isMarkerShown: true
+      });
+    }, 5000);
+  };
+  handelMarkerClick = () => {
+    this.setState({
+      isOpen: true
+    });
+    // this.showMarkerDelay();
+  };
+
+  render() {
+    return (
+      // <>
+      // {/* <Form /> */}
+      // {/* <Search /> */}
+      // {/* <Datasearch /> */}
+      // <Reactstarp />
+      // {/* <ReactAnt /> */}
+      // {/* <> */}
+      <Googlemaps
+        isMarkerShown={this.state.isMarkerShown}
+        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5S3QbWstXGqzRLw9QA1MXAJy_eJbV92o&&libraries=geometry,drawing,places"
+        loadingElement={<div style={{ height: `100%` }} />}
+        containerElement={<div style={{ height: `500px` }} />}
+        mapElement={<div style={{ height: `100%` }} />}
+        handelMarkerClick={this.handelMarkerClick}
+        isOpen={this.state.isOpen}
+      />
+
+      //  <Googlemaps isMarkerShown = {this.state.isMarkerShown} googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5S3QbWstXGqzRLw9QA1MXAJy_eJbV92o&&libraries=geometry,drawing,places"
+      //  loadingElement= {<div style={{ height:'100%'}}/>}
+      //  containerElement={<div style={{height:"500px"}} />}
+      //  mapElement={<div style={{height:"100%"}} />}
+      //  handelMarkerClick={this.handelMarkerClick}
+      // >
+
+      // </Googlemaps>
+      //   {/* </> */}
+      //   {/* <Calculator onClick={this.onClick} /> */}
+      // {/* </> */}
+    );
+  }
+}
+export default App;

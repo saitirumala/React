@@ -1,0 +1,31 @@
+[
+    {
+      "id": 1,
+      "name": "sai1",
+      "city": "Chennai",
+      "latitude": "13.0827",
+      "longitude": "80.2707 "
+    },
+    {
+      "id": 2,
+      "name": "sai2",
+      "city": "Bangalore",
+      "latitude": "12.9716",
+      "longitude": "77.5946"
+    },
+    {
+      "id": 3,
+      "name": "sai3",
+      "city": "Hyderabad",
+      "latitude": "17.3850",
+      "longitude": "78.4867 "
+    },
+    {
+        "id": 4,
+        "name": "sai4",
+        "city": "Tirupati",
+        "latitude": "13.6288",
+        "longitude": "79.4192"
+      }
+     
+  ]
