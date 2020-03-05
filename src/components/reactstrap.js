@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Form, Label, Input, Row, Col, FormGroup, Button, FormText, Table } from 'reactstrap';
 import { AvForm, AvRadio, AvRadioGroup } from 'availity-reactstrap-validation';
+var firebase = require("firebase/app");
+require("firebase/database");
 class Reactstrap extends Component {
     constructor(props) {
         super(props);
@@ -10,7 +12,24 @@ class Reactstrap extends Component {
             selectInput: "name",
             reCallData: [],
             name1: 'Yes',
-            name2: 'No'
+            name2: 'No',
+            count:Math.floor(Math.random() * 10000),
+            name:'',
+            username:'',
+            email: '',
+            password: '',
+            confirmPassword:'',
+            address: '',
+            address2:'',
+            city: '',
+            restate: '',
+            dob: '',
+            age: '',
+            phone: '',
+            pin: '',
+            files: '',
+            deg: '',
+            url: '',
         }
         this.handelChange = this.handleChange.bind(this);
         this.submit = this.submit.bind(this);
@@ -19,12 +38,23 @@ class Reactstrap extends Component {
         this.searchData = this.searchData.bind(this);
         this.reset = this.reset.bind(this);
     }
-
+    componentDidMount = () =>{
+      
+        var config = {
+            apiKey: "AIzaSyDo9AVxOSQc9tK7uZHTxfMgE-XeHt2UYnw",
+            databaseURL: "https://personal-details-db.firebaseio.com/"
+          };
+          if (!firebase.apps.length) {
+            firebase.initializeApp(config);
+            // firebase.initializeApp(config);
+          }
+    }
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value,
             // [event.target.name]:event.target.file
         })
+
     }
     handleFileChange = event => {
         this.setState({
@@ -34,6 +64,7 @@ class Reactstrap extends Component {
     }
     submit = event => {
         event.preventDefault();
+      
         const data = [...this.state.data];
         if (
             this.state.name == "" &&
@@ -74,6 +105,7 @@ class Reactstrap extends Component {
                 deg: this.state.deg,
                 url: this.state.url
             });
+            this.addDataToDb()
         }
         this.setState({
             data: this.state.data,
@@ -125,9 +157,30 @@ class Reactstrap extends Component {
         event.preventDefault();
         this.setState({
             name: this.state.value,
-
         })
-
+    }
+    addDataToDb = () => {
+        firebase
+        .database()
+        .ref(`details/${this.state.count}`)
+        .set({
+                name: this.state.name,
+                username: this.state.username,
+                email: this.state.email,
+                password: this.state.password,
+                confirmPassword: this.state.confirmPassword,
+                address: this.state.address,
+                address2: this.state.address2,
+                city: this.state.city,
+                restate: this.state.restate,
+                dob: this.state.dob,
+                age: this.state.age,
+                phone: this.state.phone,
+                pin: this.state.pin,
+                files: this.state.files,
+                deg: this.state.deg,
+                url: this.state.url
+        });
     }
     render() {
 
